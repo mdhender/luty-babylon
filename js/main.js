@@ -111,7 +111,7 @@ const createScene = function (sector) {
 
     // add the stars and dust clouds to the scene
     sector.systems.forEach((system, ndx) => {
-        const mesh = BABYLON.MeshBuilder.CreateSphere("obj-${ndx}", {diameter: 1, segments: 32}, scene);
+        const mesh = BABYLON.MeshBuilder.CreateSphere(`obj-${ndx}`, {diameter: 1, segments: 32}, scene);
         mesh.position.x = system.x;
         mesh.position.y = system.y;
         mesh.position.z = system.z;
