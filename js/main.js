@@ -85,11 +85,12 @@ const createScene = function (sector) {
     // This creates a basic Babylon Scene object (non-mesh)
     const scene = new BABYLON.Scene(engine);
 
-    // This creates and positions a free camera (non-mesh)
-    const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+    const camera = new BABYLON.ArcRotateCamera("camera", -Math.PI / 2, Math.PI / 2.5, 3, new BABYLON.Vector3(0, 0, 0));
 
-    // This targets the camera to scene origin
-    camera.setTarget(BABYLON.Vector3.Zero());
+    // // This creates and positions a free camera (non-mesh)
+    // const camera = new BABYLON.FreeCamera("camera1", new BABYLON.Vector3(0, 5, -10), scene);
+    // // This targets the camera to scene origin
+    // camera.setTarget(BABYLON.Vector3.Zero());
 
     // This attaches the camera to the canvas
     camera.attachControl(canvas, true);
@@ -99,6 +100,8 @@ const createScene = function (sector) {
 
     // Default intensity is 1. Let's dim the light a small amount
     light.intensity = 0.7;
+
+    const box = BABYLON.MeshBuilder.CreateBox("box", {});
 
     // Our built-in 'sphere' shape.
     const sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter: 2, segments: 32}, scene);
